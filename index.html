@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notes Book</title>
+  <link rel="stylesheet" href="./Assets/style.css">
+  <link rel="stylesheet" href="./Assets/responsive.css">
+  <script src="./Assets/app.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>My Notes</h1>
+    <div>
+      <button class="add-note-btn">Add Notes</button>
+      <button id="themeToggleBtn" class="theme-toggle-btn">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main class="notes-grid">
+
+    <!-- Empty state -->
+    <div id="emptyState" class="empty-state">
+      <h2>No notes yet</h2>
+      <p>Create your first note to get started!</p>
+      <button class="add-note-btn" onclick="openNoteDialog()">Add Your First Note</button>
+    </div>
+
+    <!-- Notes container -->
+    <div id="notesContainer"></div>
+
+    <!-- Note card template -->
+    <template id="noteTemplate">
+      <div class="note-card">
+        <h3 class="note-title"></h3>
+        <p class="note-content"></p>
+        <p class="note-timestamp"></p> <!-- optional timestamp -->
+        <div class="note-actions">
+          <button class="edit-btn" title="Edit Note">✏️</button>
+          <button class="delete-btn" title="Delete Note">🗑️</button>
+        </div>
+      </div>
+    </template>
+
+  </main>
+
+  <!-- Note dialog -->
+  <dialog id="noteDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <h2 class="dialog-title" id="dialogTitle">Add New Note</h2>
+        <button class="close-btn" onclick="closeNoteDialog()">x</button>
+      </div>
+
+      <form id="noteForm">
+        <div class="form-group">
+          <label for="noteTitle" class="form-label">Notes Title</label>
+          <input type="text" id="noteTitle" class="form-input" placeholder="Enter Your Note Title" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="noteContent" class="form-label">Notes Content</label>
+          <textarea id="noteContent" class="form-textarea" placeholder="Write Your Notes" required></textarea>
+        </div>
+
+        <div class="dialog-actions">
+          <button type="button" class="cancel-btn" onclick="closeNoteDialog()">Cancel</button>
+          <button type="submit" class="save-btn">Save Your Notes</button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p>&copy; MyNotes. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#" target="_blank">About</a>
+        <a href="#" target="_blank">Contact</a>
+        <a href="#" target="_blank">Privacy</a>
+      </div>
+      <div class="footer-socials">
+        <a href="#" target="_blank">🌐</a>
+        <a href="#" target="_blank">🐦</a>
+        <a href="#" target="_blank">📘</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
